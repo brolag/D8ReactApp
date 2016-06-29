@@ -18,7 +18,7 @@ class ListNotifications extends React.Component {
     const notifications = context.data;
     const formattedNotifications = notifications.map((notification) => {
       return (
-        <h4 className="noti-title">{notification.title[0].value}</h4>
+        <Notification title={notification.title[0].value} body={notification.body[0].value} />
       );
     });
     return formattedNotifications;
@@ -26,10 +26,19 @@ class ListNotifications extends React.Component {
 
   render() {
     const notifications = this._getNotifications();
-    console.log('asfasdf', notifications);
     return ( <div>{notifications}</div>);
-  }
-
+    }
+}
+            
+class Notification extends React.Component {
+ render() {
+        return (
+            <div className="notification">
+                <h4 className="noti-title" dangerouslySetInnerHTML={{__html: this.props.title}} />
+                <p className="noti-body" dangerouslySetInnerHTML={{__html: this.props.body}} />
+            </div>
+        )
+    }
 }
 
 let target = document.getElementById('main');

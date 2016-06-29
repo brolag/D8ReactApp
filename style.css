@@ -5,3 +5,13 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+.notification {
+    border: 1px solid darkslategray;
+    padding: 15px;
+    margin: 20px;
+}
+
+.noti-title {
+    color: darkslategray;
+}
