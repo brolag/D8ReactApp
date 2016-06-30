@@ -5,7 +5,7 @@
  */
 class ListNotifications extends React.Component {
 
-  // Obtiene los datos a partir del servicio web.
+  // Obtiene los datos a partir del endpoint servido desde Drupal.
   _getNotificationsResponse(context) {
       $.ajax({
             type: 'GET',
