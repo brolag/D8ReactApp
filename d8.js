@@ -1,5 +1,11 @@
+/**
+ * ListNotifications
+ *
+ * Componente contenedor de notificaciones.
+ */
 class ListNotifications extends React.Component {
 
+  // Obtiene los datos a partir del servicio web.
   _getNotificationsResponse(context) {
       $.ajax({
             type: 'GET',
@@ -12,6 +18,7 @@ class ListNotifications extends React.Component {
           });
   }
 
+  // Genera una lista de notificaciones.
   _getNotifications() {
     const context = this;
     this._getNotificationsResponse(context);
@@ -24,13 +31,20 @@ class ListNotifications extends React.Component {
     return formattedNotifications;
   }
 
+  // Imprime las notificaciones.
   render() {
     const notifications = this._getNotifications();
     return ( <div>{notifications}</div>);
     }
 }
-            
+
+/**
+ * Notification
+ *
+ * Componente notificacion.
+ */
 class Notification extends React.Component {
+
  render() {
         return (
             <div className="notification">
@@ -41,7 +55,7 @@ class Notification extends React.Component {
     }
 }
 
+// Imprime los datos en el div indicado.
 let target = document.getElementById('main');
-
 ReactDOM.render(<ListNotifications/>, target);
 
